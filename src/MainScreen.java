@@ -1,4 +1,3 @@
-import javax.sound.midi.SysexMessage;
 import java.util.Scanner;
 
 public class MainScreen {
@@ -43,7 +42,7 @@ public class MainScreen {
             if (type == -1 ) { // Exit condition
                 break;
             }
-            if(type > 3) { // Invalid option
+            if( type < 1 || type > 3 ) { // Invalid option
                 System.out.println("Invalid option");
                 continue;
             }
@@ -51,18 +50,7 @@ public class MainScreen {
             System.out.println("Enter the name of the vehicle: ");
             String name = scanner.nextLine();
 
-            Vehicle v;
-
-            if (type == 1) { // Motorcycle
-                v = new Motorcycle(name);
-            } else if (type == 2) { // Car
-                v = new Car(name);
-            } else{ // Truck
-                v = new Truck(name);
-            }
-
-            DB.addVehicle(v);
-            System.out.println("Vehicle added: " + name);
+            DB.build(type,name);
         }
     }
 

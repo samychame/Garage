@@ -5,6 +5,9 @@ public class Truck extends Vehicle{
         super(TRUCK_FIXTIME, name);
     }
 
+    public static Truck build(String name){
+        return new Truck(name);
+    }
     @Override
     public void fixed() {
         System.out.println(super.name + " truck fixed!");
@@ -20,4 +23,5 @@ public class Truck extends Vehicle{
         return "Truck "+ super.name + "[Fix time: " + TRUCK_FIXTIME + "h]";
 
     }
+
 }

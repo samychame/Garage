@@ -5,6 +5,10 @@ public class Motorcycle extends Vehicle{
         super(MOTORCYCLE_FIXTIME,name);
     }
 
+    public static Motorcycle build(String name){
+        return new Motorcycle(name);
+    }
+
     @Override
     public void fixed() {
         System.out.println(super.name + " motorcycle fixed!");

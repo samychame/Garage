@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.PriorityQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +16,7 @@ public class Garage {
     }
 
     public void start() {
-        ArrayList<Vehicle> vehicles = DB.getVehicles();
+        ArrayList<Vehicle> vehicles = DB.getVehicleList();
         Runnable task = () -> tick(vehicles);
 
         executor = Executors.newScheduledThreadPool(1);
@@ -50,7 +52,5 @@ public class Garage {
         // Call the protocol's fixed method to update the UI
         protocolGarage.fixed(v);
     }
-
-
 
 }
