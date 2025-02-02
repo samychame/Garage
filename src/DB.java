@@ -46,9 +46,7 @@ public class DB {
             return vehicleList;
         }
         for(PriorityQueue<Vehicle> queue : vehicles.values()){
-            while(!queue.isEmpty()){
-                vehicleList.add(queue.poll());
-            }
+            vehicleList.addAll(queue);
         }
         return vehicleList;
     }
